@@ -1,0 +1,37 @@
+<%= form_with(model: candy, local: true) do |form| %>
+  <% if candy.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(candy.errors.count, "error") %> prohibited this candy from being saved:</h2>
+
+      <ul>
+      <% candy.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.file_field :image, id: :candy_image_data %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.text_field :price, id: :candy_price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :candy_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Caption %>
+    <%= form.text_area :Caption, id: :candy_Caption %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
